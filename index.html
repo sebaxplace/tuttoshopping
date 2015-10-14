@@ -1,0 +1,972 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Tuttoshopping</title>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0">
+
+<link rel="stylesheet" href="jquery-mobile/tuttoshoppings.css" />
+<link rel="stylesheet" href="jquery-mobile/jquery.mobile.icons.min.css" />
+<link rel="stylesheet" href="jquery-mobile/jquery.mobile.structure-1.4.5.min.css" /> 
+<link rel="stylesheet" href="jquery-mobile/swiper.css" />
+<script type="text/javascript" charset="utf-8" src="cordova.js"></script> 
+
+<script src="jquery-mobile/jquery.js"></script> 
+<script src="jquery-mobile/jquery-1.11.2.min.js"></script> 
+
+<script src="jquery-mobile/swiper.jquery.min.js"></script>
+<script src="jquery-mobile/phonegaps3.js"></script> 
+
+<script src="http://maps.google.com/maps/api/js?sensor=true"></script> 
+<script src="jquery-mobile/jquery.countdown.js"></script>
+
+<script src="jquery-mobile/jquery.mobile-1.4.5.min.js"></script> 
+
+
+</head> 
+<body onload="onBodyLoad()"> 
+<input type="hidden" id="user" />
+<div data-role="page" id="home" data-theme="d">
+    <div data-role="header"  class="bor_bk">
+        <div class="p20"><img src="img/logo.png" width="100%" /></div>
+    </div>
+    
+    <div data-role="content" data-theme="b">
+        <table>
+        <tbody>
+            <tr>
+                <td>
+                    <img src="img/search.png" width="50"/>
+                </td>
+                <td>
+                    <div class="borderb ptopbot">Cerca l'offerta</div>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <img src="img/foglio.png"  width="50%"/>
+                </td>
+                <td>
+                    <div class="borderb ptopbot">Salva il coupon <br> nell'area riservata</div>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <img src="img/phone.png"  width="50%"/>
+                </td>
+                <td>
+                    <div class="borderb ptopbot">Prenota l'offerta entro il <br>giorno indicato e chiama <br>l'esercente per fissare<br> l'appuntamento</div>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <img src="img/stampa.png" width="50%" />
+                </td>
+                <td> 
+                    <div class="borderb ptopbot">Presentati con il coupon <br>stampato</div>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <img src="img/portafoglio.png"  width="50%"/>
+                </td>
+                <td>
+                    <div class="borderb ptopbot">Paga direttamente <br> all'esercente</div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+    
+    <div data-role="footer" data-position="fixed" data-theme="c" class="bgblack">
+        <div data-role="content">   
+            <div data-role="navbar">
+                <ul>
+                    <li><a href="#login">CONTINUA</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    
+</div>
+
+<div data-role="page" id="login" data-theme="d">
+    <div data-role="header" class="bor_bk">
+        <div class="p20"><img src="img/logo.png" width="100%" /></div>
+    </div>
+<div data-role="content" class="centrado">  
+    <div>Usa il tuo account Facebook per accedere a  
+        Tuttoshopping</div>
+       
+        <button id="facebooka" class="facebg">Login con Facebook</button>
+</div>
+
+    <div data-role="content" class="centrado">  
+        <div>Accedi subito con il tuo account</div>
+        <div class="sx top40">
+        <form id="formulario" >
+         <div>Email</div> 
+            <label for="nombredeusuario" class="ui-hidden-accessible">Email:</label>
+            <input type="email" name="nombredeusuario" id="nombredeusuario" placeholder="Email" value="" data-theme="c">
+            <div>Password</div>  
+            <label for="clave" class="ui-hidden-accessible">Password:</label>
+            <input type="password" name="clave" id="clave" placeholder="Password" value="" data-theme="c">  
+            <div class="dx"><a href="#recupera" class="orange">Hai dimenticato la tua password?</a></div>
+            
+            <div data-role="navbar" class="top40">
+                <ul>
+                    <li><input type="submit" value="CONTINUA" id="botonLogin"></li>
+                </ul>
+            </div>
+        
+        </form>
+        </div>
+        
+        
+    </div>
+    
+    <div data-role="content" data-theme="c" class="bgblack bordert">    
+        <div data-role="content" data-theme="d">
+        Non sei ancora registrato?
+        </div>
+            <div data-role="navbar">
+                <ul>
+                    <li><a href="#registrati">REGISTRATI</a></li>
+                </ul>
+            </div>
+        </div>
+    
+</div>
+
+
+
+
+<div data-role="page" id="recupera" data-theme="d">
+  
+        <div data-role="header" data-theme="c" data-position="fixed" class="ptop20">
+            <a href="#" class="top20 ui-btn  ui-shadow left ui-corner-all ui-btn-icon-notext ui-icon-carat-l" data-rel="back">Info</a>
+            <h1><div id="titulor2"></div></h1>
+        
+        </div>
+        
+   
+    <div data-role="content">  
+        <div class="p20"><img src="img/logo.png" width="100%" /></div>
+        <div>
+        Recupera la tua password
+        </div>
+       <form id="formulario2" class="top40">
+        
+         <div>Email</div> 
+            <label for="emails" class="ui-hidden-accessible">Email:</label>
+            <input type="email" name="email_recupero" id="email_recupero" placeholder="Email"  value="" data-theme="c">   
+          
+          <input type="hidden" name="id_utente" value="" id="id_utente" />
+          
+          
+         
+          
+          </fieldset>
+          
+          
+          
+          
+            <div data-role="content" data-theme="c" class="bgblack">    
+            <div data-role="navbar">
+                <ul>
+                    <li><input type="submit" value="INVIA" id="inviarecupero" /></li>
+                </ul>
+            </div>
+        </div>
+        </form>
+        
+        
+    </div>
+    
+   
+    
+</div>
+</div>
+
+
+<div data-role="page" id="registrati" data-theme="d">
+   
+
+        <div data-role="header" data-theme="c" data-position="fixed" class="ptop20">
+            <a href="#" class="top20 ui-btn  ui-shadow left ui-corner-all ui-btn-icon-notext ui-icon-carat-l" data-rel="back">Info</a>
+            <h1><div id="titulor"></div></h1>
+        </div>
+        
+
+
+    
+    <div data-role="content" class="centrado">  
+        <div class="p20"><img src="img/logo.png" width="100%" /></div>
+        <div>
+        Registrati su Tuttoshopping
+        </div>
+        <div class="sx top40">
+        <form id="formulario">
+        <div>Nome</div>
+            <label for="nombre" class="ui-hidden-accessible">Nome:</label>
+            
+            <input type="text" name="nome" id="nombre" placeholder="Nome" value="" data-theme="c">
+        <div>Cognome</div>    
+            <label for="apellido" class="ui-hidden-accessible">Cognome:</label>
+            <input type="text" name="cognome" id="apellido" placeholder="Cognome" value="" data-theme="c">   
+            
+        <div>Provincia</div>    
+            <select name="provincia" id="provincias" data-native-menu="true" data-theme="a">
+                <option value="">Scegli la tua provincia</option>
+               
+            </select>
+         <div>Email</div> 
+            <label for="emails" class="ui-hidden-accessible">Email:</label>
+            <input type="email" name="email" id="emails" placeholder="Email" value="" data-theme="c">   
+          
+          
+          <div>Password</div>  
+            <label for="password1" class="ui-hidden-accessible">Password:</label>
+            <input type="password" name="password" id="password1" placeholder="Password" value="" data-theme="c">  
+          
+          
+          <div>Conferma Password</div>  
+            <label for="password2" class="ui-hidden-accessible">Conferma Password:</label>
+            <input type="password" name="confpassword" id="password2" placeholder="Conferma Password" value="" data-theme="c"> 
+          
+          
+          <fieldset data-role="controlgroup" data-theme="d">
+          <input type="checkbox" name="privacy" id="privacy" value="on" />
+          <label class="bgblack" for="privacy">Accetto informativa sulla privacy</label>
+          
+
+
+          <input type="checkbox" name="newsletter" id="offertes" value="on">
+          <label class="bgblack" for="offertes">Desidero ricevere le offerte sempre aggiornarte su tuttoshopping. Benessere, Ristoranti, Tempo Libero, Professionisti.</label>
+
+          <input type="checkbox" name="newslettercommerciale" id="nuovis" value="on">
+          <label class="bgblack" for="nuovis">Desidero ricevere informazioni riguardo i nuovi prodotti ed eventi di Tuttoshopping e informazioni commerciali di aziende terze selezionate direttamente da Tuttoshopping o di società partnet</label>
+          
+          </fieldset>
+          
+          
+          
+          
+            <div data-role="content" data-theme="c" class="bgblack">    
+            <div data-role="navbar">
+                <ul>
+                    <li><input type="submit" value="REGISTRATI" id="botonRegistra" /></li>
+                </ul>
+            </div>
+        </div>
+        </form>
+        </div>
+    </div>
+    
+</div>
+
+
+<div data-role="page" id="index" data-theme="a">
+<div class="ui-loader ui-corner-all ui-body-a ui-loader-default" style="display: block;">
+ <span class="ui-icon ui-icon-loading">
+ </span>
+ <h1>loading</h1>
+</div>
+<input type="hidden" id="opt" />
+	<div data-role="header" data-theme="c" data-position="fixed" data-tap-toggle="false" >
+		
+        <div class="ui-grid-b centrado top20">
+        	<div class="ui-block-a" id="itutto">
+            	<a href="#chisiamo"  id="chisiamo"><img src="img/icontutto2.svg" class="left p10" widht="36"/></a>
+            </div>
+            <div class="ui-block-b">
+            <form>
+            	<select data-native-menu="true" data-theme="d" id="selector">
+                	<option value="">Tutte le provincie</option>
+                    <option value="latlong">Posizione attuale</option>
+                   
+                </select>
+            </form>
+            </div>
+            <div class="ui-block-c">
+            	<a href="#myarea" class="ui-shadow ui-btn ui-corner-all ui-icon-user ui-btn-icon-notext ui-btn-inline right">Info</a>
+            </div>
+        </div>
+	</div>
+	
+	
+    
+    <div data-role="content" class="" data-theme="c" >
+        <div id="top"></div>
+        <div id="output"></div>
+    </div>
+    
+    
+    
+    
+   
+    
+    <div data-role="footer" data-position="fixed" data-tap-toggle="false" data-theme="c">
+         <!-- Swiper -->
+   
+        <div id="cont1"><a href="#"  id="close1"  class="ui-btn  ui-shadow left ui-corner-all ui-btn-icon-notext ui-icon-delete close-banner">Chiudi</a>
+        <div id="banner1"></div></div>
+         <div class="swiper-container">
+            <div class="swiper-wrapper">
+                 <div class="swiper-slide"><a href="#" data-value="0" id="city-search-btn">Tutte le offerte</a></div>
+                <div class="swiper-slide"><a href="#" data-value="1" id="city-search-btn">Shopping</a></div>
+                <div class="swiper-slide"><a href="#" data-value="2" id="city-search-btn">Benessere</a></div>
+                <div class="swiper-slide"><a href="#" data-value="3" id="city-search-btn">Ristoranti</a></div>
+                <div class="swiper-slide"><a href="#" data-value="4" id="city-search-btn">Tempo libero</a></div>
+                <div class="swiper-slide"><a href="#" data-value="5" id="city-search-btn">Professionisti</a></div>
+               
+            </div>
+        
+        <div class="swiper-scrollbar"></div>
+    </div> 
+    
+    </div>
+           
+       
+    
+	
+</div>
+
+<div data-role="page" id="detalle" data-theme="a">
+<div class="ui-loader ui-corner-all ui-body-a ui-loader-default" style="display: block;">
+ <span class="ui-icon ui-icon-loading">
+ </span>
+ <h1>loading</h1>
+</div>
+  <div data-role="header" data-theme="c" data-position="fixed" data-tap-toggle="false"  class="ptop20">
+        <a href="#chisiamo" class="top20 ui-btn  ui-shadow left ui-corner-all ui-btn-icon-notext ui-icon-carat-l" data-rel="back">Info</a>
+        <h1><div>Offerta</div></h1>
+        <a href="#myarea" class="top20 ui-shadow ui-btn ui-corner-all ui-icon-user ui-btn-icon-notext ui-btn-inline right">Info</a>
+  </div>
+  
+  
+    
+    
+    <div data-role="content" data-theme="c" class="bgwhite">  
+
+        <div id="title"></div>
+        <img id="img" width="100%" class="top20"/>
+        <div class="bgblack cien">
+            <ul id="inline">
+                <li class="orange noshadow">
+                    <img src="img/dett_01.jpg" />
+                    <strong><div class="inlineb euro px30" id="prezzo">€ </div></strong>
+                </li>
+                <li class="white noshadow  right right20">
+                    <div class="px15 top20 inlineb tachado" id="listino">€  </div>
+                </li>
+            </ul>
+        </div>
+        <div class="bgwhite bold">
+            <div class="ui-grid-a">
+                <div class="ui-block-a">
+                    <div class="top20"><img src="img/icon18_stampa.png" class="inlineb "/> <div class="  inlineb px15">Già <div id="stampa" class="inlineb"></div> stampati</div></div>
+                </div>
+                <div class="ui-block-b">
+                    <div class=" inlineb top20" id="abilita"> </div>
+                </div>
+            </div>
+             <div class="top20 cien"></div>
+        </div>
+
+        <div class="bgwhite borderb2 bordert2">
+            <div class="dx top20">
+                Quest'offerta è disponibile ancora per:
+            </div>
+            <div class="inlineb dx cien">
+                <img src="img/icon18_clock.png"  class="inlineb dx auto"/>
+                <div id="my-timer" class="dx bold inlineb px24"></div>
+                <div class="top20 cien"></div>
+            </div>
+
+        </div>
+        
+        <input type="hidden" id="lat" />
+        <input type="hidden" id="long" />
+         <div class="bgwhite borderb2 top20">
+            <div class="inlineb bold px24">
+                Caratteristiche:
+            </div>
+            <div class="top20 px15" id="caratteristiche"></div>
+         </div>
+
+          <div class="bgwhite borderb2 top20">
+            <div class="inlineb bold px24">
+                Nello specifico:
+            </div>
+            <div class="top20 px15" id="specifico"></div>
+            <div class="top20 cien"></div>
+         </div>
+
+         <div class="bgwhite borderb2 top20">
+            <div class="inlineb bold px24" data-theme="d">
+                Ti aspettiamo da:
+            </div>
+            
+
+            <div class="top20 px15 bold px24" id="sociale"></div>
+            <div class="top20 px15" id="via1"></div>
+            <div class="px15 inlineb">
+                <div class="px15 inlineb" id="ciudad1"></div>
+            </div> 
+            
+            <div class="px15" id="contacto4"></div>
+            <div class="px15" id="2contacto4"></div>
+            <div class="px15" id="3contacto4"></div> 
+
+            <div class="px15" id="via2"></div>
+            <div class="px15 inlineb">
+                <div class="px15 inlineb" id="ciudad2"></div>
+            </div>
+            
+            <div class="px15" id="b_contacto4"></div>
+            <div class="px15" id="b_2contacto4"></div>
+            <div class="px15" id="b_3contacto4"></div> 
+
+            <div class="px15" id="via3"></div>
+            <div class="px15 inlineb">
+                <div class="px15 inlineb" id="ciudad3"></div>
+            </div>  
+            
+            <div class="px15" id="c_contacto4"></div>
+            <div class="px15" id="c_2contacto4"></div>
+            <div class="px15" id="c_3contacto4"></div> 
+
+            <div class="px15" id="webs"></div>
+
+            <div class="top20 px15" id="scheda"></div>
+            <div id="map-canvas" style="width: 100%; height: 400px; margin-top:20px;"></div>
+            <div class="top20 cien" id="google"></div>
+            <div class="top40 cien"></div>
+            <div class="top40 cien"><br></div>
+         </div>
+                 
+           
+    </div>
+        
+    <div data-role="footer" data-position="fixed" data-tap-toggle="false" data-theme="c">
+         <div id="cont2"><a href="#"  id="close1"  class="ui-btn  ui-shadow left ui-corner-all ui-btn-icon-notext ui-icon-delete close-banner2">Chiudi</a>
+        <div id="banner2"></div></div>
+      <div class="ui-grid-a">
+            <div class="ui-block-a" style="text-align:left;">
+            <button onclick=""  data-icon="action" id="share">Share</button>
+            
+            
+            </div>
+            <div class="ui-block-b">
+                <a href="#" id="linksavecoupon" data-theme="b" data-uid="" data-role="button" class="right bgblack white" data-theme="d"><strong>SALVA COUPON</strong></a>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div data-role="page" id="salvacoupon" data-theme="c">
+    <div data-role="header" data-theme="c" data-position="fixed"  data-tap-toggle="false"  class="ptop20">
+        
+        <div class="ui-grid-b centrado">
+            <div class="ui-block-a">
+                <a href="#" class="ui-btn  ui-shadow left ui-corner-all ui-btn-icon-notext ui-icon-carat-l" data-rel="back">Info</a>
+            </div>
+            <div class="ui-block-b">
+                <div class="top10">Salva coupon</div>
+            </div>
+            <div class="ui-block-c">
+            </div>
+        </div>
+    </div>
+    <div data-role="content">
+        <ul data-role="listview" data-inset="true" data-theme="b" id="cuponessave">
+        </ul>
+    </div>
+</div>
+
+<div data-role="page" id="detallecouponsalva" data-theme="c">
+    <div data-role="header" data-theme="c" data-position="fixed" data-tap-toggle="false"   class="ptop20">
+        <div class="ui-grid-b centrado">
+            <div class="ui-block-a">
+                <a href="#" class="ui-btn  ui-shadow left ui-corner-all ui-btn-icon-notext ui-icon-carat-l" data-rel="back">Info</a>
+            </div>
+            <div class="ui-block-b">
+                <div class="top10">Salva coupon</div>
+            </div>
+            <div class="ui-block-c">
+            </div>
+        </div>
+    </div>
+    <div data-role="content">
+        <ul data-role="listview" data-inset="true" data-theme="b" id="cupones2a">
+        </ul>
+    </div>
+</div>
+
+
+<div data-role="page" id="salvarcoupon" data-theme="c" class="bgblack">
+    <div data-role="header" data-theme="c" data-position="fixed" data-tap-toggle="false"   class="ptop20">
+        <div class="ui-grid-b centrado">
+            <div class="ui-block-a">
+                <a href="#" class="ui-btn  ui-shadow left ui-corner-all ui-btn-icon-notext ui-icon-carat-l" data-rel="back">Info</a>
+            </div>
+            <div class="ui-block-b">
+                <div class="top10">Salva coupon</div>
+            </div>
+            <div class="ui-block-c">
+            </div>
+        </div>
+    </div>
+    <div data-role="content" data-theme="d">
+         <div class="p20"><img src="img/logo.png" width="100%" /></div>
+         <div class="p20 centrado orange">Salva il tuo coupon nel tuo dispositivo</div>
+         <div class="p20 centrado top40">Puoi presentarti dall'essercente<br/>mostrando direttamente<br/>la schermata del tuo device</div>
+
+
+        <div id="cupones6">
+            <button id="salvar" class="top40" id="salvar">CONFERMA</button>
+        </div>
+    </div>
+</div>
+
+<div data-role="page" id="spiacente" data-theme="c" class="bgblack">
+    <div data-role="header" data-theme="c" data-position="fixed" data-tap-toggle="false"   class="ptop20">
+        <div class="ui-grid-b centrado">
+            <div class="ui-block-a">
+                <a href="#index" class="ui-btn  ui-shadow left ui-corner-all ui-btn-icon-notext ui-icon-carat-l" >Info</a>
+            </div>
+            <div class="ui-block-b">
+                <div class="top10">Salva coupon</div>
+            </div>
+            <div class="ui-block-c">
+            </div>
+        </div>
+    </div>
+    <div data-role="content" data-theme="d">
+         <div class="p20"><img src="img/logo.png" width="100%" /></div>
+         <div class="p20 centrado orange"></div>
+         <div class="p20 centrado top40">Spiacente ma oggi hai già stampato un coupon. Puoi usufruire di questa offerta a partire da domani...Ti aspettiamo.</div>
+
+
+        
+    </div>
+</div>
+
+<div data-role="page" id="salvado" data-theme="c" class="bgblack">
+    <div data-role="header" data-theme="c" data-position="fixed"  data-tap-toggle="false"  class="ptop20">
+        <div class="ui-grid-b centrado">
+            <div class="ui-block-a">
+                <a href="#index" class="ui-btn  ui-shadow left ui-corner-all ui-btn-icon-notext ui-icon-carat-l" >Info</a>
+            </div>
+            <div class="ui-block-b">
+                <div class="top10">Salva coupon</div>
+            </div>
+            <div class="ui-block-c">
+            </div>
+        </div>
+    </div>
+    <div data-role="content" data-theme="d">
+         <div class="p20"><img src="img/logo.png" width="100%" /></div>
+         <div class="p20 centrado orange"></div>
+         <h2 class="p20 centrado top40">coupon salvato!</h2>
+         <div class="top40 centrado">
+            <a class="ui-btn ui-btn-inline" href="#mycoupons">Miei Coupons</a>
+            <a class="ui-btn ui-btn-inline" href="#index">Tutte le offerte</a>
+         </div>
+    </div>
+
+</div>
+
+<div data-role="page" id="chisiamo" data-theme="a">
+    <div data-role="header" data-theme="c" data-position="fixed"  data-tap-toggle="false"  class="ptop20">
+        
+        <div class="ui-grid-b centrado">
+            <div class="ui-block-a">
+                <a href="#" class="ui-btn  ui-shadow left ui-corner-all ui-btn-icon-notext ui-icon-carat-l" data-rel="back">Info</a>
+            </div>
+            <div class="ui-block-b">
+                <div class="top10">Chi siamo</div>
+            </div>
+            <div class="ui-block-c">
+                
+            </div>
+        </div>
+    </div>
+    
+    
+    
+    
+    <div data-role="content" data-theme="d">    
+        <div class="top40">
+            <div class="p20"><img src="img/logo.png" width="100%" /></div>
+        </div>
+    </div>
+
+     <div data-role="content" data-theme="c" class="bgwhite">   
+        <div>
+            <h2 class="orange">Contatti</h2>
+        </div>
+        <div>
+            Sei un utente?
+        </div>
+        <div class="cien borderb top10">
+           <a href="mailto:assistenza@tuttoshopping.com" class="nodec"><strong>assistenza@tuttoshopping.com</strong></a>
+        </div>
+
+        <div class="top40">
+            Sei un'esercente?
+        </div>
+        <div class="cien borderb top10">
+           <a href="mailto:pubblicita@tuttoshopping.com" class="nodec"><strong>pubblicita@tuttoshopping.com</strong></a>
+        </div>
+        <div class="top40">
+           Hai bisogno d'aiuto?
+        </div>
+        <div class="cien borderb top10">
+           <a href="mailto:serviziocliente@tuttoshopping.com" class="nodec"><strong>serviziocliente@tuttoshopping.com</strong></a>
+        </div>
+
+         <div class="top40">
+            <h2 class="orange">Chi siamo</h2>
+        </div>
+
+        <div class="top40">
+            <p>Tuttoshopping.com è un sito DEAL, primo ed unico nella regione Marche,
+ed offre un servizio estremamente vantaggioso a consumatori
+ed esercenti della tua città, attraverso l’utilizzo di esclusivi coupon che
+consentono acquisti di prodotti e/o servizi con incredibili sconti sui normali prezzi di listino.
+Gli esercenti che fanno parte del circuito Tuttoshopping.com, propongono di volta in volta
+sul sito un numero limitato di prodotti e/o servizi su cui praticano fortissimi sconti.</p>
+ <p>Questi prodotti/servizi possono essere prenotati solamente attraverso il sito,
+iscrivendosi gratuitamente e scaricando il relativo coupon numerato che verrà
+presentato direttamente all’esercente per l’acquisto, salvo esaurimento quantità
+del prodotto/servizio al momento della presentazione del coupon stesso.</p>
+        </div>
+
+    </div>
+        
+    
+</div>
+
+<div data-role="page" id="myarea" data-theme="c">
+    <div data-role="header" data-theme="c" data-position="fixed"  data-tap-toggle="false"  class="ptop20">
+        
+        <div class="ui-grid-b centrado">
+            <div class="ui-block-a">
+                <a href="#" class="ui-btn  ui-shadow left ui-corner-all ui-btn-icon-notext ui-icon-carat-l" data-rel="back">Info</a>
+            </div>
+            <div class="ui-block-b">
+                <div class="top10">Area Utente</div>
+            </div>
+            <div class="ui-block-c">
+                
+            </div>
+        </div>
+    </div>
+    
+    
+    
+    
+    <div data-role="content">
+        <ul data-role="listview" data-inset="true" data-theme="b">
+            <li><a href="#mycoupons" rel="external">I miei coupons</a></li>
+            <li><a href="#mydate">I miei dati</a></li>
+            <li><a href="#logout">Logout</a></li>
+        </ul>
+    </div>
+        
+    
+</div>
+
+
+<div data-role="page" id="mycoupons" data-theme="c">
+    <div data-role="header" data-theme="c" data-position="fixed"  data-tap-toggle="false"  class="ptop20">
+        
+        <div class="ui-grid-b centrado">
+            <div class="ui-block-a">
+                <a href="#" class="ui-btn  ui-shadow left ui-corner-all ui-btn-icon-notext ui-icon-carat-l" data-rel="back">Info</a>
+            </div>
+            <div class="ui-block-b">
+                <div class="top10">I miei coupons</div>
+            </div>
+            <div class="ui-block-c">
+                
+            </div>
+        </div>
+    </div>
+    
+    
+    
+    
+    <div data-role="content">
+     
+            <ul data-role="listview" data-inset="true" data-theme="b" id="cupones">
+               
+               
+            </ul>
+     
+    </div>
+        
+    
+</div>
+
+
+<div data-role="page" id="detallecoupon" data-theme="a">
+  <div data-role="header" data-theme="c" data-position="fixed" data-tap-toggle="false"  class="ptop20">
+        <a href="#chisiamo" class="top20 ui-btn  ui-shadow left ui-corner-all ui-btn-icon-notext ui-icon-carat-l" data-rel="back">Info</a>
+        <h1>Mio Coupon</h1>
+  </div>
+  
+  
+    
+    
+    <div data-role="content" data-theme="c" class="bgwhite">  
+        <h2 id="title2"></h2>
+        <div id="descoupon1"></div>
+        <div id="sconto_coupon" class="top10"></div>
+        <div id="des_v_coupon" class="top20"></div>
+        <div class="bgblack cien top40">
+            <div class="white px15 top20 inlineb codcoupon">Prezzo da pagare: </div> 
+            <div class="orange px30 top20 noshadow price inline bold" id="prezzo1"></div>
+        </div>
+        <img id="img2" width="100%" />
+        <div class="bgblack cien">
+            <div class="white px15 inlineb codcoupon">Codice coupon: </div> 
+            <div class="orange px30 top20 noshadow price inline bold" id="prezzo2"></div>
+        </div>
+        
+        <div class="bgwhite">
+             <div class="top20 bold inlineb px15">Nello specifico:</div>
+        </div>
+        <input type="hidden" id="lat3" />
+        <input type="hidden" id="long3" />
+       
+         
+        
+         <div class="bgwhite borderb2 top20">
+            <div class="inlineb px15">
+               
+                    <div id="des_v_coupon2"></div>
+                
+            </div>
+            <div class="top20 px15" id="caratteristiche2"></div>
+         </div>
+
+          <div class="bgwhite borderb2 top20">
+            <div class="inlineb bold px15" id="nomeaz"></div>
+           
+            <div class="px15" id="via_az"></div>
+            <div class="px15" id="citta"></div>
+            <div class="px15" id="tel_az"></div>
+            <div class="px15" id="tel_az2"></div>
+            <div class="px15" id="tel_az3"></div>
+             
+
+            <div class="px15" id="via_az2"></div>
+            <div class="px15" id="b_citta"></div>
+            <div class="px15" id="b_tel_az"></div>
+            <div class="px15" id="b_tel_az2"></div>
+            <div class="px15" id="b_tel_az3"></div>
+
+            <div class="px15" id="via_az3"></div>
+            <div class="px15" id="c_citta"></div>
+            <div class="px15" id="c_tel_az"></div>
+            <div class="px15" id="c_tel_az2"></div>
+            <div class="px15" id="c_tel_az3"></div>
+
+
+
+            <div class="cien top20"></div>
+         </div>
+
+         <div class="bgwhite borderb2 top20">
+            <div id="map-canvas3" style="width: 100%; height: 400px; margin-top:20px;">
+            </div>
+            <div id="googles"></div>
+           <div class="bgblack cien top20">
+            <div class="white px15 top20 inlineb codcoupon">Hai bisogno di assistenza? <br>Contatta il servizio clienti: <a href="mailto:serviziocliente@tuttoshopping" class="orange">serviziocliente@tuttoshopping</a> </div> 
+           
+            </div>
+
+            
+         </div>
+                 
+           
+    </div>
+        
+    <div data-role="footer" data-position="fixed" data-tap-toggle="false"  data-theme="c">
+        
+      <div class="ui-grid-a">
+            <div class="ui-block-a" style="text-align:left;">
+            
+            
+            
+            
+            </div>
+            <div class="ui-block-b">
+                <a href="#" id="amico" data-uid="" data-role="button" class="right" data-theme="d">INVIA AD UN AMICO</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div data-role="page" id="mydate" data-theme="d">
+    <div data-role="header" data-theme="c" data-position="fixed"  data-tap-toggle="false"  class="ptop20">
+        
+        <div class="ui-grid-b centrado">
+            <div class="ui-block-a">
+                <a href="#" class="ui-btn  ui-shadow left ui-corner-all ui-btn-icon-notext ui-icon-carat-l" data-rel="back">Info</a>
+            </div>
+            <div class="ui-block-b">
+                <div class="top10">I miei dati</div>
+            </div>
+            <div class="ui-block-c">
+                
+            </div>
+        </div>
+    </div>
+    
+    
+    
+    
+    <div data-role="content">
+     
+            <form id="formulario">
+        <div>Nome</div>
+            <label for="nombre" class="ui-hidden-accessible">Nome:</label>
+            
+            <input type="text" name="nome" id="nombre2" placeholder="Nome" value="" data-theme="c" />
+        <div>Cognome</div>    
+            <label for="apellido" class="ui-hidden-accessible">Cognome:</label>
+            <input type="text" name="cognome" id="apellido2" placeholder="Cognome" value="" data-theme="c" />   
+            
+        <div>Provincia</div>    
+            <select name="provincia" id="provincias2" data-native-menu="true" data-theme="a">
+                <option value="">Scegli la tua provincia</option>
+               
+            </select>
+         <div>Email</div> 
+            <label for="emails" class="ui-hidden-accessible">Email:</label>
+            <input type="email" name="email" id="emails2" placeholder="Email" value="" data-theme="c" />   
+          
+          
+          <div>Password 
+attuale</div>  
+            <label for="password1" class="ui-hidden-accessible">Password 
+attuale:</label>
+            <input type="password" name="password" id="password1a" placeholder="Password" value="" data-theme="c" />  
+          
+          <div>Nuova Password</div>  
+            <label for="password2" class="ui-hidden-accessible">Nuova Password:</label>
+            <input type="password" name="confpasswordb" id="password2b" placeholder="Nuova Password" value="" data-theme="c" />
+          
+          <div>Conferma Password</div>  
+            <label for="password2" class="ui-hidden-accessible">Conferma Nuova Password:</label>
+            <input type="password" name="confpasswordc" id="password2c" placeholder="Conferma Nuova Password" value="" data-theme="c" /> 
+          
+          
+          <fieldset data-role="controlgroup" data-theme="d">
+         
+
+            <div id="oferta" class="top20"></div>
+          
+          <div id="comercial" class="top20"></div>
+
+         
+          
+          </fieldset>
+          
+          
+          
+          
+              
+            <div data-role="navbar">
+                <ul>
+                    <li><input type="submit" value="SALVA" id="botonRegistra2" /></li>
+                </ul>
+            </div>
+       
+        </form>
+     
+    </div>
+        
+    
+</div>
+
+
+
+<div data-role="page" id="invia" data-theme="d">
+    <div data-role="header" data-theme="c" data-position="fixed" data-tap-toggle="false"  class="ptop20">
+        <a href="#" class="top20 ui-btn  ui-shadow left ui-corner-all ui-btn-icon-notext ui-icon-carat-l" data-rel="back">Info</a>
+        <h1>Invia ad un amico</h1>
+       
+  </div>
+    <div data-role="content" class="centrado">  
+        
+        <p id="titulo2" class="sx"></p>
+        <div class="sx top40">
+        <form id="formulario2">
+        
+         <div>Email</div> 
+            <label for="emails" class="ui-hidden-accessible">Email:</label>
+            <input type="email" name="email_amico" id="email_amico" placeholder="Email"  value="" data-theme="c">   
+          
+          
+          <input type="hidden" name="id_offerta" value="" id="id_offerta" />
+          <input type="hidden" name="id_utente" value="" id="id_utente" />
+          
+          
+          <div>Messaggio</div>  
+            <label for="password2" class="ui-hidden-accessible">Messaggio:</label>
+            <textarea name="messaggio" id="messaggio" placeholder="Messaggio" data-theme="c"></textarea>
+           
+            
+          
+          </fieldset>
+          
+          
+          
+          
+            <div data-role="content" data-theme="c" class="bgblack">    
+            <div data-role="navbar">
+                <ul>
+                    <li><input type="submit" value="INVIA" id="inviaAmico" /></li>
+                </ul>
+            </div>
+        </div>
+        </form>
+        </div>
+    </div>
+    
+</div>
+
+
+<div data-role="page" id="amicook" data-theme="d">
+    <div data-role="header" data-theme="c" data-position="fixed" data-tap-toggle="false"  class="ptop20">
+        <a href="#index" class="top20 ui-btn  ui-shadow left ui-corner-all ui-btn-icon-notext ui-icon-carat-l">Info</a>
+        <h1><div>Conferma Invio</div></h1>
+       
+  </div>
+    <div data-role="content" class="centrado">  
+        
+        
+        <div class="sx top40">
+        Offerta correttamente inviata ai tuoi amici.
+        </div>
+    </div>
+    
+</div>
+
+
+
+
+<div data-role="page" id="logout" data-theme="d">
+    
+    
+</div>
+
+</body>
+</html>
