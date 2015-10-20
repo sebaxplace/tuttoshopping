@@ -12,6 +12,11 @@
 <script type="text/javascript" charset="utf-8" src="cordova.js"></script> 
 
 <script src="jquery-mobile/jquery.js"></script> 
+<script type="text/javascript">
+  $(document).bind("mobileinit", function(){
+      $.mobile.hashListeningEnabled = false;
+  });
+</script>  
 <script src="jquery-mobile/jquery-1.11.2.min.js"></script> 
 
 <script src="jquery-mobile/swiper.jquery.min.js"></script>

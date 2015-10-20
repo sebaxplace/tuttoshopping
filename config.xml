@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<widget xmls  	= "http://www.w3.org/ns/widgets"
-	xmlns:gap 	= "http://phonegap.com/ns/1.0"
-	id			= "com.tuttoshopping"
-	version		= "1.1.8">
+<widget xmls    = "http://www.w3.org/ns/widgets"
+  xmlns:gap   = "http://phonegap.com/ns/1.0"
+  id      = "com.tuttoshopping"
+  version   = "1.1.9">
 
 <name>Tuttoshopping</name>
 <description>
@@ -11,7 +11,7 @@ Scopri gli imperdibili sconti della tua città con Tuttoshopping su centri benes
 <author href="http://www.xplacecompany.com/" email="sebastian@xplacecompany.com">
 Sebastian Frassia
 </author>
-
+<preference name="phonegap-version" value="3.7.0" />
 <preference name="orientation" value="portrait" />
 <preference name="target-device" value="universal" />
 <preference name="prerendered-icon" value="true" />
@@ -55,13 +55,14 @@ Sebastian Frassia
 <icon src="img/android/icon/xxhdpi.png" gap:platform="android" gap:qualifier="xxhdpi" />
 <icon src="img/android/icon/it-xxhdpi.png" gap:platform="android" gap:qualifier="fr-xxhdpi" />
 
-<gap:splash src="img/android/ldpi.png" gap:platform="android" gap:qualifier="ldpi" />
-<gap:splash src="img/android/mdpi.png" gap:platform="android" gap:qualifier="mdpi" />
-<gap:splash src="img/android/hdpi.png" gap:platform="android" gap:qualifier="hdpi" />
-<gap:splash src="img/android/xhdpi.png" gap:platform="android" gap:qualifier="xhdpi" />
-<gap:splash src="img/android/it-xhdpi.png" gap:platform="android" gap:qualifier="fr-xhdpi" />
-<gap:splash src="img/android/portrait-xxhdpi.png" gap:platform="android" gap:qualifier="port-xxhdpi" />
-<gap:splash src="img/android/landscape-xxhdpi.png" gap:platform="android" gap:qualifier="land-xxhdpi" />              
+
+<preference name="SplashScreenDelay" value="10000" />
+<gap:splash src="img/android/ldpi.png" gap:platform="android" gap:density="ldpi" />
+<gap:splash src="img/android/mdpi.png" gap:platform="android" gap:density="mdpi" />
+<gap:splash src="img/android/hdpi.png" gap:platform="android" gap:density="hdpi" />
+<gap:splash src="img/android/xhdpi.png" gap:platform="android" gap:density="xhdpi" />
+<gap:splash src="img/android/xxhdpi.png" gap:platform="android" gap:density="xxhdpi" />
+<gap:splash src="img/android/xxxhdpi.png" gap:platform="android" gap:density="xxxhdpi" />              
               <!-- iOS 8.0+ -->
               <!-- iPhone 6 Plus  -->
               <icon src="img/ios/AppIcon60x60@3x.png" gap:platform="ios" width="180" height="180" />
@@ -89,7 +90,7 @@ Sebastian Frassia
               <icon src="img/ios/AppIcon50x50.png" gap:platform="ios" width="50" height="50" />
               <icon src="img/ios/AppIcon50x50@2x.png" gap:platform="ios" width="100" height="100" />
 
-              <gap:splash src="splash.png" />
+<gap:splash src="splash.png" />
               <gap:splash src="img/ios/Default.png" gap:platform="ios" width="320" height="480"/>
            <gap:splash src="img/ios/Default@2x.png" gap:platform="ios" width="640" height="960"/>
            <gap:splash src="img/ios/Default-Portrait.png" gap:platform="ios" width="768" height="1024"/>
